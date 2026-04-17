@@ -217,3 +217,47 @@ body {
     scroll-margin-top: 72px;
   }
 }
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  color: var(--secondary);
+  font-weight: 900;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h1 {
+  font-size: 2.5rem;
+}
+
+.prose h2 {
+  font-size: 1.875rem;
+}
+
+.prose p {
+  color: var(--secondary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.prose ul, .prose ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  color: var(--secondary);
+}
+
+.prose strong {
+  font-weight: 800;
+}
+
+.prose a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: var(--primary-dark);
+}

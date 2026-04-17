@@ -1,54 +1,25 @@
-import {
-  FiCreditCard,
-  FiFilter,
-  FiMap,
-  FiShoppingCart,
-  FiStar,
-  FiUserPlus,
-  FiUser,
-  FiXCircle
-} from "react-icons/fi";
+import Image from "next/image";
 
-const features = [
+const appScreens = [
   {
-    icon: FiUserPlus,
-    title: "Registration",
-    copy: "Fast onboarding for guests with clean profile setup and secure account access."
+    image: "/media1.jpeg",
+    title: "Discover Venues",
+    copy: "Find bars near you, view details, and see happy hour offers instantly."
   },
   {
-    icon: FiMap,
-    title: "Nearby bars",
-    copy: "Location-led discovery helps users find bars, lounges, and experiences close by."
+    image: "/media2.jpeg",
+    title: "Explore Menus",
+    copy: "Browse drink menus, see happy hour discounts, and add items to your cart."
   },
   {
-    icon: FiFilter,
-    title: "Filters",
-    copy: "Guests narrow venues by distance, vibe, availability, rating, and service options."
+    image: "/media3.jpeg",
+    title: "Cart & Checkout",
+    copy: "Review your order, select instant or scheduled, and pay securely."
   },
   {
-    icon: FiShoppingCart,
-    title: "Pre-book & instant order",
-    copy: "Reserve ahead, order on arrival, or send a live order straight to the vendor."
-  },
-  {
-    icon: FiCreditCard,
-    title: "Cart & payment",
-    copy: "A smooth cart and payment flow keeps the experience quick and dependable."
-  },
-  {
-    icon: FiStar,
-    title: "Reviews",
-    copy: "Ratings and feedback build trust while helping venues improve every night."
-  },
-  {
-    icon: FiXCircle,
-    title: "Cancellation",
-    copy: "Clear cancellation paths keep plans flexible without creating service friction."
-  },
-  {
-    icon: FiUser,
-    title: "Profile",
-    copy: "Saved preferences, order history, and account details stay easy to manage."
+    image: "/media4.jpeg",
+    title: "Order Summary",
+    copy: "See your cart overview, add more items, and track your order easily."
   }
 ];
 
@@ -56,12 +27,12 @@ export default function AppSection() {
   return (
     <section
       id="app"
-      className="viewport-section relative flex items-center overflow-hidden bg-background-light py-20 lg:py-24"
+      className="relative overflow-hidden bg-background-light py-20 lg:py-24"
     >
-      <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-primary-light blur-3xl" />
+      <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-primary-light blur-3xl pointer-events-none" />
       <div className="section-shell">
         <div className="reveal relative mx-auto max-w-3xl text-center">
-          <p className="eyebrow mx-auto">Guest app</p>
+          <p className="eyebrow mx-auto">Customer app</p>
           <h2 className="section-title mt-5">
             Every step of the night, handled beautifully.
           </h2>
@@ -71,28 +42,33 @@ export default function AppSection() {
           </p>
         </div>
 
-        <div className="relative mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-
-            return (
-              <article
-                key={feature.title}
-                className="premium-card reveal min-h-[160px] p-4"
-                style={{ animationDelay: `${index * 55}ms` }}
-              >
-                <div className="grid h-10 w-10 place-items-center rounded-button bg-primary-light text-lg text-primary">
-                  <Icon aria-hidden />
-                </div>
-                <h3 className="mt-3 text-base font-black text-secondary">
-                  {feature.title}
+        <div className="mt-16 space-y-16">
+          {appScreens.map((screen, index) => (
+            <article
+              key={index}
+              className={`reveal flex flex-col gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <div className="relative w-full max-w-[300px] flex-shrink-0">
+                <Image
+                  src={screen.image}
+                  alt={screen.title}
+                  width={300}
+                  height={600}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-2xl lg:text-3xl font-black text-secondary">
+                  {screen.title}
                 </h3>
-                <p className="mt-2 text-sm leading-5 text-secondary-light">
-                  {feature.copy}
+                <p className="mt-3 text-lg leading-7 text-secondary-light">
+                  {screen.copy}
                 </p>
-              </article>
-            );
-          })}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

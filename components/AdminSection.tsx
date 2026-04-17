@@ -44,12 +44,12 @@ export default function AdminSection() {
   return (
     <section
       id="admin"
-      className="viewport-section flex items-center bg-background-white py-20 lg:py-24"
+      className="flex items-center bg-background-white py-20 lg:py-24"
     >
       <div className="section-shell">
         <div className="reveal flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div className="max-w-3xl">
-            <p className="eyebrow">Admin console</p>
+            <p className="eyebrow">Admin Platform</p>
             <h2 className="section-title mt-5">
               The back office for a modern hospitality network.
             </h2>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FiCheckCircle } from "react-icons/fi";
 
 const points = [
@@ -10,14 +11,27 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="viewport-section flex items-center bg-background-muted py-20 lg:py-24"
+      className="relative flex items-center py-20 lg:py-24 bg-background-muted"
     >
-      <div className="section-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div className="reveal">
-          <p className="eyebrow">About Presto-Go</p>
-          <h2 className="section-title mt-5">
-            Hospitality software that feels as smooth as the night should.
-          </h2>
+      <div className="section-shell relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="reveal relative p-12 -m-12">
+          <div className="absolute inset-0">
+            <Image
+              src="/banner_group.png"
+              alt="Presto-Go Banner"
+              fill
+              className="object-contain opacity-90"
+              priority
+            />
+            <div className="absolute inset-0 bg-background-muted/40" />
+          </div>
+          
+          <div className="relative z-10">
+            <p className="eyebrow">About Presto-Go</p>
+            <h2 className="section-title mt-5">
+              Hospitality software that feels as smooth as the night should.
+            </h2>
+          </div>
         </div>
 
         <div className="premium-card reveal p-8 md:p-10">

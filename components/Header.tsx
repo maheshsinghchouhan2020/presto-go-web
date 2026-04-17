@@ -44,15 +44,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-border-light bg-background-white/90 shadow-[0_10px_34px_rgba(20,20,20,0.06)] backdrop-blur-xl">
       <div className="section-shell flex h-20 items-center justify-between gap-8">
         <Link href="#home" className="flex items-center gap-3 text-secondary">
-          <div className="grid h-11 w-11 place-items-center rounded-button bg-white shadow-glow transition duration-300 hover:scale-105 overflow-hidden">
-            <Image
-              src="/presto_logo.png"
-              alt="Presto-Go Logo"
-              width={50}
-              height={50}
-              className="object-contain"
-            />
-          </div>
+          <Image
+            src="/presto_logo.png"
+            alt="Presto-Go Logo"
+            width={56}
+            height={44}
+            className="object-contain transition duration-300 hover:scale-105"
+          />
           <span className="text-xl font-black tracking-[0px]">Presto-Go</span>
         </Link>
 
@@ -80,14 +78,14 @@ export default function Header() {
           })}
         </nav>
 
-        <Link
+        <a
           href="https://vendor.presto-go.com/signup"
           target="_blank"
           rel="noreferrer"
-          className="primary-button hidden px-5 py-3 text-sm font-black md:inline-flex"
+          className="primary-button hidden px-5 py-3 text-sm font-black md:inline-flex relative z-10 cursor-pointer pointer-events-auto"
         >
           Become a Vendor
-        </Link>
+        </a>
       </div>
     </header>
   );
