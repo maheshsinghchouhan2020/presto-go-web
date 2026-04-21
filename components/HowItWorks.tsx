@@ -60,7 +60,7 @@ export default function HowItWorks() {
                 <TiltCard>
                   <article className="premium-card border border-border-light bg-white h-full">
                     <div className="relative p-6 md:p-7">
-                      <div className="absolute top-6 right-6 text-5xl font-black text-primary/10">
+                      <div className="absolute top-6 right-6 text-5xl font-black text-primary">
                         {step.number}
                       </div>
                       
