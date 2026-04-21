@@ -8,8 +8,18 @@ import {
   FiBell,
   FiClock,
   FiTrendingUp,
-  FiX
+  FiX,
+  FiZoomIn,
+  FiZoomOut,
+  FiList,
+  FiPercent,
+  FiDollarSign,
+  FiStar,
+  FiSettings,
+  FiShoppingCart
 } from "react-icons/fi";
+import ScrollReveal from "./ScrollReveal";
+import TiltCard from "./TiltCard";
 
 const vendorWins = [
   { icon: FiBell, label: "Live order alerts" },
@@ -20,42 +30,38 @@ const vendorWins = [
 
 const vendorScreens = [
   {
-    image: "/vendor1.png",
+    image: "/Dashboard_Image.png",
+    icon: FiBarChart2,
     title: "Vendor Dashboard",
     copy: "See your total earnings, orders, and real-time performance all in one place."
   },
   {
-    image: "/vendor2.png",
-    title: "Manage Orders",
-    copy: "Accept, approve, and track incoming orders instantly with clear statuses."
+    icon: FiShoppingCart,
+    title: "Manage Orders & Order Details",
+    copy: "Accept, approve, and track incoming orders instantly with clear statuses. View complete order information, customer details, and payment history."
   },
   {
-    image: "/vendor3.png",
-    title: "Order Details",
-    copy: "View complete order information, customer details, and payment history."
-  },
-  {
-    image: "/vendor4.png",
+    icon: FiList,
     title: "Menu Management",
     copy: "Add, edit, and manage your menu items, categories, and stock status."
   },
   {
-    image: "/vendor5.png",
+    icon: FiPercent,
     title: "Happy Hour Offers",
     copy: "Set up happy hour discounts, schedule days and times, and boost revenue."
   },
   {
-    image: "/vendor6.png",
+    icon: FiDollarSign,
     title: "Payouts & Earnings",
     copy: "Track your daily, weekly, and monthly earnings, plus complete payout history."
   },
   {
-    image: "/vendor7.png",
+    icon: FiStar,
     title: "Reviews Management",
     copy: "View and manage customer reviews to improve your venue's service and reputation."
   },
   {
-    image: "/vendor8.png",
+    icon: FiSettings,
     title: "Bar Profile Settings",
     copy: "Update your bar information, hours, location, and all venue details easily."
   }
@@ -63,6 +69,20 @@ const vendorScreens = [
 
 export default function VendorSection() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [zoomLevel, setZoomLevel] = useState(1);
+
+  const handleZoomIn = () => {
+    setZoomLevel(prev => Math.min(prev + 0.25, 3));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel(prev => Math.max(prev - 0.25, 0.5));
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setZoomLevel(1);
+  };
 
   return (
     <section
@@ -76,7 +96,7 @@ export default function VendorSection() {
       <div className="section-shell relative">
         <div className="section-shell relative grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] mx-auto max-w-7xl mb-16">
           <div className="reveal">
-            <p className="inline-flex items-center rounded-full border border-border-strong bg-white/5 px-4 py-2 text-xs font-black uppercase text-primary backdrop-blur">
+            <p className="inline-flex items-center rounded-full border border-border-strong bg-white/5 px-4 py-2 text-xs font-black uppercase text-primary backdrop-blur eyebrow mx-auto">
               Vendor platform
             </p>
             <h2 className="mt-5 text-4xl font-black leading-[0.98] tracking-[0px] md:text-6xl">
@@ -89,8 +109,8 @@ export default function VendorSection() {
 
             <div className="mt-8 grid max-w-xl gap-4 sm:grid-cols-3">
               {[
-                ["248", "orders tonight"],
-                ["06m", "avg wait"],
+                ["389", "orders tonight"],
+                ["05m", "avg wait"],
                 ["4.9", "guest rating"]
               ].map(([value, label]) => (
                 <div
@@ -152,7 +172,7 @@ export default function VendorSection() {
                     <p className="text-sm font-bold text-secondary-light">
                       Tonight orders
                     </p>
-                    <p className="mt-1 text-4xl font-black">248</p>
+                    <p className="mt-1 text-4xl font-black">389</p>
                   </div>
                   <p className="rounded-full bg-status-success-light px-3 py-1 text-sm font-black text-status-success">
                     +32%
@@ -172,61 +192,116 @@ export default function VendorSection() {
           </div>
         </div>
 
-        <div className="space-y-16 mt-24">
-          {vendorScreens.map((screen, index) => (
-            <div
-              key={index}
-              className={`flex flex-col gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
-            >
-              <div 
-                className="relative w-full max-w-[500px] flex-shrink-0 cursor-pointer"
-                onClick={() => setSelectedImage(screen.image)}
-              >
-                <Image
-                  src={screen.image}
-                  alt={screen.title}
-                  width={500}
-                  height={350}
-                  className="w-full h-auto rounded-2xl hover:opacity-90 transition-opacity"
-                  priority
-                />
-              </div>
+        <div className="mt-24">
+          {/* Vendor Dashboard */}
+          <ScrollReveal>
+            <div className="flex flex-col gap-8 items-center mb-16 lg:flex-row relative">
+              {vendorScreens[0].image && (
+                <div 
+                  className="relative w-full max-w-[500px] flex-shrink-0 cursor-pointer"
+                  onClick={() => {
+                    const img = vendorScreens[0].image;
+                    if (img) setSelectedImage(img);
+                  }}
+                >
+                  <Image
+                    src={vendorScreens[0].image}
+                    alt={vendorScreens[0].title}
+                    width={500}
+                    height={350}
+                    className="w-full rounded-2xl hover:opacity-90 transition-opacity object-contain"
+                    priority
+                  />
+                </div>
+              )}
               <div className="flex-1">
                 <h3 className="text-2xl lg:text-3xl font-black text-white">
-                  {screen.title}
+                  {vendorScreens[0].title}
                 </h3>
                 <p className="mt-3 text-lg leading-7 text-secondary-light">
-                  {screen.copy}
+                  {vendorScreens[0].copy}
                 </p>
               </div>
             </div>
-          ))}
+          </ScrollReveal>
+
+          {/* Other features grid */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {vendorScreens.slice(1).map((screen, index) => (
+              <ScrollReveal key={index} delay={index * 80}>
+                <TiltCard className="h-full">
+                  <div className="premium-card border border-primary/30 bg-white p-6 md:p-7 h-full">
+                    <div className="w-16 h-16 rounded-2xl bg-primary-light flex items-center justify-center mb-5">
+                      <screen.icon className="text-3xl text-primary" />
+                    </div>
+                    <h3 className="text-xl font-black text-secondary mb-2">
+                      {screen.title}
+                    </h3>
+                    <p className="text-base leading-7 text-secondary-light">
+                      {screen.copy}
+                    </p>
+                  </div>
+                </TiltCard>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </div>
 
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
-          onClick={() => setSelectedImage(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+          onClick={closeModal}
         >
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setSelectedImage(null);
-            }}
-            className="absolute top-6 right-6 text-white text-3xl bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors"
-          >
-            <FiX />
-          </button>
-          <div className="relative max-w-4xl max-h-[90vh]">
-            <Image
-              src={selectedImage}
-              alt="Preview"
-              width={1200}
-              height={800}
-              className="object-contain rounded-2xl"
-              priority
-            />
+          <div className="absolute top-6 right-6 flex items-center gap-3">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleZoomOut();
+              }}
+              className="text-white text-xl bg-black/50 rounded-full p-3 hover:bg-black/70 transition-colors"
+              disabled={zoomLevel <= 0.5}
+            >
+              <FiZoomOut />
+            </button>
+            <span className="text-white font-bold min-w-[60px] text-center">
+              {Math.round(zoomLevel * 100)}%
+            </span>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleZoomIn();
+              }}
+              className="text-white text-xl bg-black/50 rounded-full p-3 hover:bg-black/70 transition-colors"
+              disabled={zoomLevel >= 3}
+            >
+              <FiZoomIn />
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                closeModal();
+              }}
+              className="text-white text-xl bg-black/50 rounded-full p-3 hover:bg-black/70 transition-colors"
+            >
+              <FiX />
+            </button>
+          </div>
+
+          <div className="relative max-w-[90vw] max-h-[85vh] overflow-auto">
+            <div 
+              className="flex items-center justify-center"
+              style={{ transform: `scale(${zoomLevel})`, transition: 'transform 0.2s ease' }}
+            >
+              <Image
+                src={selectedImage}
+                alt="Vendor Dashboard"
+                width={1200}
+                height={800}
+                className="object-contain rounded-2xl"
+                priority
+              />
+            </div>
           </div>
         </div>
       )}

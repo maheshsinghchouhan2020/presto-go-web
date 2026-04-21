@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FiCheckCircle } from "react-icons/fi";
+import ScrollReveal from "./ScrollReveal";
 
 const points = [
   "Built for premium bars, lounges, and high-volume hospitality teams.",
@@ -14,7 +15,7 @@ export default function AboutSection() {
       className="relative flex items-center py-20 lg:py-24 bg-background-muted"
     >
       <div className="section-shell relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div className="reveal relative p-12 -m-12">
+        <ScrollReveal className="relative p-12 -m-12">
           <div className="absolute inset-0">
             <Image
               src="/banner_group.png"
@@ -32,9 +33,9 @@ export default function AboutSection() {
               Hospitality software that feels as smooth as the night should.
             </h2>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="premium-card reveal p-8 md:p-10">
+        <ScrollReveal delay={150} className="premium-card p-8 md:p-10">
           <p className="section-copy">
             Presto-Go brings the speed of consumer ordering together with the
             control venues need behind the bar. The result is a more predictable
@@ -57,7 +58,7 @@ export default function AboutSection() {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -3,62 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiAlertCircle, FiRefreshCcw } from "react-icons/fi";
-
-async function fetchWithTimeout(
-  url: string, 
-  options: RequestInit = {}, 
-  timeout = 10000
-): Promise<Response> {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeout);
-
-  try {
-    const response = await fetch(url, {
-      ...options,
-      signal: controller.signal,
-    });
-    clearTimeout(timeoutId);
-    return response;
-  } catch (error) {
-    clearTimeout(timeoutId);
-    if (error instanceof Error && error.name === "AbortError") {
-      throw new Error("Request timeout: The server is taking too long to respond");
-    }
-    throw error;
-  }
-}
-
-async function getTermsConditions(
-  retries = 3, 
-  delayMs = 1000
-): Promise<string | null> {
-  for (let attempt = 1; attempt <= retries; attempt++) {
-    try {
-      const res = await fetchWithTimeout(
-        "https://api.presto-go.com/api/view-terms-conditions?owner_type=vendor",
-        { cache: "no-store" }
-      );
-      
-      if (!res.ok) {
-        const errorDetails = res.status === 404 
-          ? "Terms and conditions not found" 
-          : `Server error (${res.status})`;
-        throw new Error(errorDetails);
-      }
-      
-      return await res.text();
-    } catch (error) {
-      if (attempt === retries) {
-        console.error("Failed to fetch terms and conditions after retries:", error);
-        return null;
-      }
-      
-      await new Promise(resolve => setTimeout(resolve, delayMs * attempt));
-    }
-  }
-  
-  return null;
-}
+import { fetchWithRetry } from "@/lib/fetch-utils";
 
 export default function TermsConditionsVendor() {
   const [htmlContent, setHtmlContent] = useState<string | null>(null);
@@ -66,7 +11,14 @@ export default function TermsConditionsVendor() {
 
   const loadTerms = async () => {
     setLoading(true);
-    const content = await getTermsConditions();
+    const content = await fetchWithRetry(
+      "https://api.presto-go.com/api/view-terms-conditions?owner_type=vendor",
+      { cache: "no-store" },
+      3,
+      1000,
+      "Terms and conditions not found",
+      "Server error"
+    );
     setHtmlContent(content);
     setLoading(false);
   };
@@ -119,3 +71,4 @@ export default function TermsConditionsVendor() {
     </div>
   );
 }
+

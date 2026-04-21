@@ -6,12 +6,14 @@ import {
   FiSliders,
   FiUsers
 } from "react-icons/fi";
+import ScrollReveal from "./ScrollReveal";
+import TiltCard from "./TiltCard";
 
 const adminTools = [
   {
     icon: FiUsers,
     title: "User management",
-    copy: "Track guests, vendors, roles, and access from a clean control center."
+    copy: "Track users, and vendors roles, and access from a clean control center."
   },
   {
     icon: FiLayers,
@@ -47,7 +49,7 @@ export default function AdminSection() {
       className="flex items-center bg-background-white py-20 lg:py-24"
     >
       <div className="section-shell">
-        <div className="reveal flex flex-col justify-between gap-8 md:flex-row md:items-end">
+        <ScrollReveal className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div className="max-w-3xl">
             <p className="eyebrow">Admin Platform</p>
             <h2 className="section-title mt-5">
@@ -58,32 +60,32 @@ export default function AdminSection() {
             Admin teams get the visibility and control needed to keep the guest
             and vendor ecosystem running with confidence.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {adminTools.map((tool, index) => {
             const Icon = tool.icon;
 
             return (
-              <article
-                key={tool.title}
-                className="premium-card reveal p-5"
-                style={{ animationDelay: `${index * 70}ms` }}
-              >
-                <div className="flex items-start gap-5">
-                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-button bg-primary-light text-xl text-primary">
-                    <Icon aria-hidden />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-black text-secondary">
-                      {tool.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-secondary-light">
-                      {tool.copy}
-                    </p>
-                  </div>
-                </div>
-              </article>
+              <ScrollReveal key={tool.title} delay={index * 80}>
+                <TiltCard>
+                  <article className="premium-card p-5">
+                    <div className="flex items-start gap-5">
+                      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-button bg-primary-light text-xl text-primary">
+                        <Icon aria-hidden />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-black text-secondary">
+                          {tool.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-6 text-secondary-light">
+                          {tool.copy}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </TiltCard>
+              </ScrollReveal>
             );
           })}
         </div>

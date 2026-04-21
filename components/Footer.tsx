@@ -1,6 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FiArrowUpRight } from "react-icons/fi";
+import { FiArrowUpRight, FiInstagram, FiMail } from "react-icons/fi";
+import AppDownloadModal from "./AppDownloadModal";
 
 const quickLinks = [
   { label: "Customer app", href: "#app" },
@@ -20,6 +24,7 @@ const vendorLegalLinks = [
 ];
 
 export default function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <footer className="bg-secondary text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_22%,rgba(245,107,85,0.14),transparent_30%),radial-gradient(circle_at_78%_28%,rgba(245,107,85,0.08),transparent_24%)] pointer-events-none" />
@@ -40,6 +45,23 @@ export default function Footer() {
               Premium ordering, booking, and marketplace software for modern bar
               experiences. Connecting guests and venues seamlessly.
             </p>
+
+            <div className="mt-6 flex items-center gap-4">
+              <a
+                href="https://instagram.com/Prestogo_cheers"
+                target="_blank"
+                rel="noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/80 transition-all duration-300 hover:bg-primary-light hover:text-primary hover:scale-110"
+              >
+                <FiInstagram className="text-xl" />
+              </a>
+              <Link
+                href="#contact"
+                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/80 transition-all duration-300 hover:bg-primary-light hover:text-primary hover:scale-110"
+              >
+                <FiMail className="text-xl" />
+              </Link>
+            </div>
           </div>
 
           <div>
@@ -48,6 +70,18 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-3">
               {quickLinks.map((link) => {
+                if (link.label === "Customer app") {
+                  return (
+                    <button
+                      key={link.label}
+                      onClick={() => setIsModalOpen(true)}
+                      className="inline-flex items-center gap-2 text-base font-semibold text-white transition duration-300 hover:text-primary bg-transparent border-none p-0 cursor-pointer"
+                    >
+                      {link.label}
+                      <FiArrowUpRight className="text-sm" />
+                    </button>
+                  );
+                }
                 if (link.href.startsWith("http")) {
                   return (
                     <a
@@ -55,7 +89,7 @@ export default function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-base font-semibold text-white transition duration-300 hover:text-primary hover:pl-1"
+                      className="inline-flex items-center gap-2 text-base font-semibold text-white transition duration-300 hover:text-primary"
                     >
                       {link.label}
                       <FiArrowUpRight className="text-sm" />
@@ -66,7 +100,7 @@ export default function Footer() {
                     <Link
                       key={link.label}
                       href={link.href}
-                      className="inline-flex items-center gap-2 text-base font-semibold text-white transition duration-300 hover:text-primary hover:pl-1"
+                      className="inline-flex items-center gap-2 text-base font-semibold text-white transition duration-300 hover:text-primary"
                     >
                       {link.label}
                     </Link>
@@ -86,7 +120,7 @@ export default function Footer() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="text-base font-semibold text-secondary-light transition duration-300 hover:text-white hover:pl-1"
+                    className="text-base font-semibold text-secondary-light transition duration-300 hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -102,7 +136,7 @@ export default function Footer() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="text-base font-semibold text-secondary-light transition duration-300 hover:text-white hover:pl-1"
+                    className="text-base font-semibold text-secondary-light transition duration-300 hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -121,6 +155,8 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      <AppDownloadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
   );
 }

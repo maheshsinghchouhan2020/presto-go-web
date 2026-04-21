@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { FiMail, FiMapPin, FiPhone, FiCheckCircle, FiLoader, FiAlertCircle } from "react-icons/fi";
+import { FiMail, FiMapPin, FiCheckCircle, FiLoader, FiAlertCircle } from "react-icons/fi";
+import ScrollReveal from "./ScrollReveal";
 
 type FormErrors = {
   full_name?: string;
@@ -83,7 +84,7 @@ export default function ContactSection() {
       } else {
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     }
   };
@@ -149,7 +150,7 @@ export default function ContactSection() {
     >
       <div className="absolute left-0 top-24 h-72 w-72 rounded-full bg-primary-light blur-3xl pointer-events-none" />
       <div className="section-shell relative grid gap-12 lg:grid-cols-[0.92fr_1.08fr]">
-        <div className="reveal">
+        <ScrollReveal>
           <p className="eyebrow">Contact</p>
           <h2 className="section-title mt-5">
             Ready to bring Presto-Go to your venue?
@@ -179,17 +180,18 @@ export default function ContactSection() {
               );
             })}
           </div>
-        </div>
+        </ScrollReveal>
 
-        <form onSubmit={handleSubmit} className="premium-card reveal reveal-delay-1 p-6 md:p-8">
-          <div className="mb-7 border-b border-border-light pb-6">
-            <p className="text-xs font-black uppercase text-secondary-light">
-              Vendor inquiry
-            </p>
-            <h3 className="mt-2 text-2xl font-black text-secondary">
-              Tell us where to start.
-            </h3>
-          </div>
+        <ScrollReveal delay={150}>
+          <form onSubmit={handleSubmit} className="premium-card p-6 md:p-8">
+            <div className="mb-7 border-b border-border-light pb-6">
+              <p className="text-xs font-black uppercase text-secondary-light">
+                Vendor inquiry
+              </p>
+              <h3 className="mt-2 text-2xl font-black text-secondary">
+                Tell us where to start.
+              </h3>
+            </div>
 
           {status === "success" && (
             <div className="mb-6 flex items-center gap-3 rounded-card border border-status-success bg-status-success-light p-4">
@@ -316,6 +318,7 @@ export default function ContactSection() {
             )}
           </button>
         </form>
+        </ScrollReveal>
       </div>
     </section>
   );

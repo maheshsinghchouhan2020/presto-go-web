@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaStar } from "react-icons/fa";
@@ -10,8 +13,10 @@ import {
   FiClock,
 } from "react-icons/fi";
 import { RiDiscountPercentFill } from "react-icons/ri";
+import AppDownloadModal from "./AppDownloadModal";
 
 export default function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <section
       id="home"
@@ -34,7 +39,7 @@ export default function Hero() {
       <div className="section-shell relative grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] xl:gap-14">
         <div className="reveal max-w-4xl">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border-strong bg-white/5 px-4 py-2 text-sm font-bold text-white shadow-[0_18px_50px_rgba(20,20,20,0.24)] backdrop-blur">
-            <FiStar className="text-primary" />A memorable night...
+            <FiStar className="text-primary" />A memorable night start here
           </div>
           <h1 className="text-5xl font-black leading-[0.96] tracking-[0px] md:text-6xl xl:text-7xl">
             Discover bars, order and pay with{" "}
@@ -66,12 +71,12 @@ export default function Hero() {
             >
               Launch your Vendor account <FiArrowRight aria-hidden />
             </a>
-            <Link
-              href="#app"
-              className="inline-flex items-center justify-center rounded-button border border-border-strong bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur transition duration-300 hover:scale-105 hover:border-primary hover:text-primary"
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex items-center justify-center rounded-button border border-border-strong bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur transition duration-300 hover:scale-105 hover:border-primary hover:text-primary cursor-pointer"
             >
               Explore the app
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -141,13 +146,16 @@ export default function Hero() {
               <div className="mt-5">
                 {/* Title */}
                 <h3 className="text-3xl font-bold tracking-tight">
-                  One 8 Commune
+                  Prestissimo
                 </h3>
 
                 {/* Tag */}
-                <div className="mt-3">
+                <div className="mt-3 flex gap-2">
                   <span className="inline-flex items-center bg-primary-light text-primary px-4 py-1.5 rounded-full text-sm font-semibold">
-                    Pool Table
+                    Happy Hour
+                  </span>
+                  <span className="inline-flex items-center bg-primary-light text-primary px-4 py-1.5 rounded-full text-sm font-semibold">
+                    Live Music
                   </span>
                 </div>
 
@@ -156,14 +164,14 @@ export default function Hero() {
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-1">
                       <FiMapPin />
-                      <span>0.03 km</span>
+                      <span>0.06 km</span>
                     </div>
 
                     <span>•</span>
 
                     <div className="flex items-center gap-1">
                       <FiClock />
-                      <span>&lt;1 min</span>
+                      <span>5 min</span>
                     </div>
                   </div>
 
@@ -176,6 +184,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <AppDownloadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
