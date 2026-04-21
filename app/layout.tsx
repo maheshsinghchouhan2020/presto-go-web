@@ -68,9 +68,6 @@ export const metadata: Metadata = {
     apple: "/presto_logo.png",
   },
   manifest: "/site.webmanifest",
-  verification: {
-    google: "",
-  },
 };
 
 export default function RootLayout({
