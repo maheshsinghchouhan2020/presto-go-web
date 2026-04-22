@@ -153,11 +153,11 @@ export default function ContactSection() {
         <ScrollReveal>
           <p className="eyebrow">Contact</p>
           <h2 className="section-title mt-5">
-            Ready to bring Presto-Go to your venue?
+            Need help with Presto-Go for your venue?
           </h2>
           <p className="section-copy mt-6 max-w-xl">
-            Share a few details and the Presto-Go team can help you plan the
-            right launch path for your market.
+            Share your questions, highlights, or remarks and the Presto-Go team
+            will help you get the most out of the platform.
           </p>
 
           <div className="mt-10 grid max-w-xl gap-4">
@@ -186,10 +186,10 @@ export default function ContactSection() {
           <form onSubmit={handleSubmit} className="premium-card p-6 md:p-8">
             <div className="mb-7 border-b border-border-light pb-6">
               <p className="text-xs font-black uppercase text-secondary-light">
-                Vendor inquiry
+                Vendor support
               </p>
               <h3 className="mt-2 text-2xl font-black text-secondary">
-                Tell us where to start.
+                Tell us how we can help.
               </h3>
             </div>
 
@@ -292,7 +292,7 @@ export default function ContactSection() {
                   ? "border-status-error focus:border-status-error focus:ring-4 focus:ring-status-error-light"
                   : "border-border-light bg-background-muted hover:border-border-strong focus:border-primary focus:bg-background-white focus:ring-4 focus:ring-primary-light"
               }`}
-              placeholder="Tell us about your launch goals."
+              placeholder="Tell us your questions, remarks, or support needs."
               disabled={status === "sending"}
             />
             {errors.message && (
