@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { FiZap, FiArrowRight } from "react-icons/fi";
 import ScrollReveal from "./ScrollReveal";
+import AppDownloadModal from "./AppDownloadModal";
 
 export default function GetStartedSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className="relative py-20 lg:py-24 bg-secondary">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_22%,rgba(245,107,85,0.14),transparent_30%),radial-gradient(circle_at_78%_28%,rgba(245,107,85,0.08),transparent_24%)] pointer-events-none" />
@@ -21,7 +25,7 @@ export default function GetStartedSection() {
                 <span className="text-primary">Presto-Go</span>
               </h2>
               <p className="text-xl text-secondary-light mb-6">
-                Why wait to enjoy your night out?
+                Why wait to enjoy your night out with Presto-Go today ?
               </p>
               <p className="text-lg text-secondary-light mb-10 max-w-2xl mx-auto">
                 Join thousands of users who are already discovering better experiences with Presto-Go — the smartest bar ordering app.
@@ -37,15 +41,13 @@ export default function GetStartedSection() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="https://vendor.presto-go.com/signup"
-                  target="_blank"
-                  rel="noreferrer"
+                <button
+                  onClick={() => setIsModalOpen(true)}
                   className="primary-button inline-flex items-center justify-center gap-3 px-10 py-5 text-base font-bold cursor-pointer !rounded-full backdrop-blur transition duration-300 hover:scale-105"
                 >
                   Get Started Now
                   <FiArrowRight />
-                </a>
+                </button>
                 <button
                   onClick={() => {
                     const contactSection = document.getElementById("contact");
@@ -62,6 +64,11 @@ export default function GetStartedSection() {
           </div>
         </ScrollReveal>
       </div>
+
+      <AppDownloadModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }
