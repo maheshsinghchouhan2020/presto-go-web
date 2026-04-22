@@ -36,7 +36,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="viewport-section relative py-20 lg:py-24 bg-background-white">
+    <section className="relative py-20 lg:py-24 bg-background-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_22%,rgba(245,107,85,0.08),transparent_30%),radial-gradient(circle_at_78%_28%,rgba(245,107,85,0.05),transparent_24%)] pointer-events-none" />
       
       <div className="section-shell relative">
