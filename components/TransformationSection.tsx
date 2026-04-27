@@ -34,32 +34,32 @@ export default function TransformationSection() {
     <section className="relative py-20 lg:py-24 bg-secondary">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_22%,rgba(245,107,85,0.14),transparent_30%),radial-gradient(circle_at_78%_28%,rgba(245,107,85,0.08),transparent_24%)] pointer-events-none" />
 
-      <div className="section-shell relative">
-        <ScrollReveal className="text-center mb-12">
-          <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary-light px-6 py-2 text-xs font-black uppercase text-primary mx-auto">
-            <BiTrophy className="text-base" />
+      <div className="section-shell relative px-4 sm:px-6">
+        <ScrollReveal className="text-center mb-10 lg:mb-12">
+          <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary-light px-6 py-2 text-[10px] sm:text-xs font-black uppercase text-primary mx-auto">
+            <BiTrophy className="text-sm sm:text-base" />
             BEST OF 2026
           </p>
-          <h2 className="mt-6 text-4xl font-black leading-[1.1] tracking-[0px] md:text-5xl lg:text-6xl text-white">
+          <h2 className="mt-6 text-3xl font-black leading-[1.1] tracking-[0px] sm:text-4xl md:text-5xl lg:text-6xl text-white">
             Best Bar Ordering App for 2026
           </h2>
-          <p className="mt-4 text-lg leading-8 text-secondary-light max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-secondary-light max-w-2xl mx-auto">
             As more people look for faster ways to enjoy nights out, the demand for{" "}
             <span className="text-white font-semibold">mobile bar ordering</span> continues to grow.
           </p>
         </ScrollReveal>
 
-        <ScrollReveal className="mb-16">
+        <ScrollReveal className="mb-12 lg:mb-16">
           <div className="premium-card border border-border-strong bg-white/5 backdrop-blur">
-            <div className="p-8 md:p-10 text-center">
+            <div className="p-6 sm:p-8 md:p-10 text-center">
               <div className="flex items-center justify-center gap-3 mb-8">
-                <BsRocketTakeoff className="text-3xl text-primary animate-pulse" />
-                <h3 className="text-xl md:text-2xl font-black text-gray-900">
+                <BsRocketTakeoff className="text-2xl sm:text-3xl text-primary animate-pulse" />
+                <h3 className="text-lg sm:text-xl md:text-2xl font-black text-gray-900">
                   Presto-Go is leading this transformation
                 </h3>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-3">
+              <div className="grid gap-6 grid-cols-1 sm:grid-cols-3">
                 {transformationItems.map((item, index) => {
                   const Icon = item.icon;
                   const isActive = activeIndex === index;
@@ -78,7 +78,7 @@ export default function TransformationSection() {
                           <Icon className="text-2xl" />
                         </div>
                       </div>
-                      <h4 className="text-lg font-semibold">
+                      <h4 className="text-lg font-semibold text-secondary">
                         {item.title}
                       </h4>
                     </div>

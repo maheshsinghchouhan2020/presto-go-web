@@ -46,23 +46,23 @@ export default function AdminSection() {
   return (
     <section
       id="admin"
-      className="flex items-center bg-background-white py-20 lg:py-24"
+      className="flex items-center bg-background-white py-16 lg:py-24"
     >
-      <div className="section-shell">
-        <ScrollReveal className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+      <div className="section-shell px-4 sm:px-6">
+        <ScrollReveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-3xl">
             <p className="eyebrow">Admin Platform</p>
-            <h2 className="section-title mt-5">
+            <h2 className="section-title mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
               The back office for a modern hospitality network.
             </h2>
           </div>
-          <p className="section-copy max-w-md">
+          <p className="section-copy max-w-md text-base sm:text-lg">
             Admin teams get the visibility and control needed to keep the guest
             and vendor ecosystem running with confidence.
           </p>
         </ScrollReveal>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {adminTools.map((tool, index) => {
             const Icon = tool.icon;
 

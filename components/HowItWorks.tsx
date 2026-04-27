@@ -39,20 +39,20 @@ export default function HowItWorks() {
     <section className="relative py-20 lg:py-24 bg-background-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_22%,rgba(245,107,85,0.08),transparent_30%),radial-gradient(circle_at_78%_28%,rgba(245,107,85,0.05),transparent_24%)] pointer-events-none" />
       
-      <div className="section-shell relative">
-        <ScrollReveal className="text-center mb-16">
+      <div className="section-shell relative px-4 sm:px-6">
+        <ScrollReveal className="text-center mb-10 lg:mb-16">
           <p className="eyebrow mx-auto">
             How it works
           </p>
-          <h2 className="section-title mt-5">
+          <h2 className="section-title mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             Simple. Fast. <span className="text-primary">Seamless ordering</span>
           </h2>
-          <p className="section-copy mt-4 max-w-2xl mx-auto">
+          <p className="section-copy mt-4 text-base sm:text-lg max-w-2xl mx-auto">
             Presto-Go makes ordering at bars effortless. Here is how you can skip the lines and enjoy more.
           </p>
         </ScrollReveal>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (

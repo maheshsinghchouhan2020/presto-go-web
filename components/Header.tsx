@@ -42,16 +42,16 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border-light bg-background-white/90 shadow-[0_10px_34px_rgba(20,20,20,0.06)] backdrop-blur-xl">
-      <div className="section-shell flex h-20 items-center justify-between gap-8">
-        <Link href="#home" className="flex items-center gap-3 text-secondary">
+      <div className="section-shell px-2 xs:px-4 sm:px-6 flex h-20 items-center justify-between gap-2 xs:gap-4 md:gap-8">
+        <Link href="#home" className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 text-secondary shrink-0">
           <Image
             src="/presto_logo.png"
             alt="Presto-Go Logo"
-            width={56}
-            height={44}
-            className="object-contain transition duration-300 hover:scale-105"
+            width={38}
+            height={28}
+            className="object-contain transition duration-300 hover:scale-105 xs:w-[44px] xs:h-[34px] sm:w-[56px] sm:h-[44px]"
           />
-          <span className="text-xl font-black tracking-[0px]">Presto-Go</span>
+          <span className="text-base xs:text-lg sm:text-xl font-black tracking-[0px]">Presto-Go</span>
         </Link>
 
         <nav className="hidden items-center gap-2 rounded-full border border-border-light bg-background-muted px-2 py-2 lg:flex">
@@ -82,7 +82,7 @@ export default function Header() {
           href="https://vendor.presto-go.com/signup"
           target="_blank"
           rel="noreferrer"
-          className="primary-button hidden px-5 py-3 text-sm font-black md:inline-flex relative z-10 cursor-pointer pointer-events-auto"
+          className="primary-button inline-flex px-3 xs:px-4 sm:px-5 py-2 sm:py-3 text-[10px] xs:text-xs sm:text-sm font-black relative z-10 cursor-pointer pointer-events-auto"
         >
           Become a Vendor
         </a>

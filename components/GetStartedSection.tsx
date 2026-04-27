@@ -31,7 +31,7 @@ export default function GetStartedSection() {
                 Join thousands of users who are already discovering better experiences with Presto-Go — the smartest bar ordering app.
               </p>
 
-              <div className="flex items-center justify-center gap-6 mb-10">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10">
                 {["Discover bars near you", "Order instantly", "Pay securely"].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />

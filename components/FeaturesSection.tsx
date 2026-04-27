@@ -53,15 +53,15 @@ export default function FeaturesSection() {
     <section className="relative py-20 lg:py-24 bg-background-light">
       <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-primary-light blur-3xl pointer-events-none" />
       
-      <div className="section-shell relative">
-        <ScrollReveal className="text-center mb-16">
+      <div className="section-shell relative px-4 sm:px-6">
+        <ScrollReveal className="text-center mb-10 lg:mb-16">
           <p className="eyebrow mx-auto">Why choose us</p>
-          <h2 className="section-title mt-5">
+          <h2 className="section-title mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             Everything you need for a perfect night
           </h2>
         </ScrollReveal>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (

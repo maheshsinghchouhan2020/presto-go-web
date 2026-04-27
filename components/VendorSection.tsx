@@ -30,37 +30,43 @@ const vendorWins = [
 
 const vendorScreens = [
   {
-    image: "/Dashboard_Image.png",
+    screenshot: "/vendor1.png",
     icon: FiBarChart2,
     title: "Vendor Dashboard",
     copy: "See your total earnings, orders, and real-time performance all in one place."
   },
   {
+    screenshot: "/vendor2.png",
     icon: FiShoppingCart,
     title: "Manage Orders & Order Details",
     copy: "Accept, approve, and track incoming orders instantly with clear statuses. View complete order information, customer details, and payment history."
   },
   {
+    screenshot: "/vendor4.png",
     icon: FiList,
     title: "Menu Management",
     copy: "Add, edit, and manage your menu items, categories, and stock status."
   },
   {
+    screenshot: "/vendor5.png",
     icon: FiPercent,
     title: "Happy Hour Offers",
     copy: "Set up happy hour discounts, schedule days and times, and boost revenue."
   },
   {
+    screenshot: "/vendor6.png",
     icon: FiDollarSign,
     title: "Payouts & Earnings",
     copy: "Track your daily, weekly, and monthly earnings, plus complete payout history."
   },
   {
+    screenshot: "/vendor7.png",
     icon: FiStar,
     title: "Reviews Management",
     copy: "View and manage customer reviews to improve your venue's service and reputation."
   },
   {
+    screenshot: "/vendor8.png",
     icon: FiSettings,
     title: "Bar Profile Settings",
     copy: "Update your bar information, hours, location, and all venue details easily."
@@ -93,32 +99,32 @@ export default function VendorSection() {
       <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-primary-light blur-3xl pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0)_34%),radial-gradient(circle_at_18%_78%,rgba(245,107,85,0.16),transparent_28%)] pointer-events-none" />
 
-      <div className="section-shell relative">
-        <div className="section-shell relative grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] mx-auto max-w-7xl mb-16">
+      <div className="section-shell relative px-4 sm:px-6">
+        <div className="section-shell relative grid items-center gap-10 lg:gap-14 lg:grid-cols-[0.9fr_1.1fr] mx-auto max-w-7xl mb-12 lg:mb-16">
           <div className="reveal">
-            <p className="inline-flex items-center rounded-full border border-border-strong bg-white/5 px-4 py-2 text-xs font-black uppercase text-primary backdrop-blur eyebrow mx-auto">
+            <p className="inline-flex items-center rounded-full border border-border-strong bg-white/5 px-4 py-2 text-[10px] sm:text-xs font-black uppercase text-primary backdrop-blur eyebrow mx-auto">
               Vendor platform
             </p>
-            <h2 className="mt-5 text-4xl font-black leading-[0.98] tracking-[0px] md:text-6xl">
+            <h2 className="mt-5 text-3xl font-black leading-[1.1] tracking-[0px] sm:text-4xl md:text-5xl lg:text-6xl">
               Turn every table into a faster revenue channel.
             </h2>
-            <p className="mt-7 max-w-xl text-lg leading-9 text-secondary-light">
+            <p className="mt-6 max-w-xl text-base sm:text-lg leading-7 sm:leading-9 text-secondary-light">
               Presto-Go gives bars a premium operating layer for reservations,
               incoming orders, payment visibility, menu control, and guest demand.
             </p>
 
-            <div className="mt-8 grid max-w-xl gap-4 sm:grid-cols-3">
+            <div className="mt-8 grid max-w-xl gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3">
               {[
                 ["389", "orders tonight"],
                 ["05m", "avg wait"],
                 ["4.9", "guest rating"]
-              ].map(([value, label]) => (
+              ].map(([value, label], idx) => (
                 <div
                   key={label}
-                  className="rounded-card border border-border-strong bg-white/5 p-4 backdrop-blur"
+                  className={`rounded-card border border-border-strong bg-white/5 p-3 sm:p-4 backdrop-blur ${idx === 2 ? 'col-span-2 sm:col-span-1' : ''}`}
                 >
-                  <p className="text-3xl font-black text-white">{value}</p>
-                  <p className="mt-1 text-sm font-semibold text-secondary-light">
+                  <p className="text-2xl sm:text-3xl font-black text-white">{value}</p>
+                  <p className="mt-1 text-[10px] sm:text-sm font-semibold text-secondary-light">
                     {label}
                   </p>
                 </div>
@@ -129,23 +135,23 @@ export default function VendorSection() {
               href="https://vendor.presto-go.com/signup"
               target="_blank"
               rel="noreferrer"
-              className="primary-button mt-10 inline-flex animate-[vendor-pulse_2.2s_ease-in-out_infinite] items-center justify-center gap-3 px-9 py-5 text-lg font-black relative z-10 cursor-pointer pointer-events-auto"
+              className="primary-button mt-10 inline-flex animate-[vendor-pulse_2.2s_ease-in-out_infinite] items-center justify-center gap-3 px-7 sm:px-9 py-4 sm:py-5 text-base sm:text-lg font-black relative z-10 cursor-pointer pointer-events-auto"
             >
               🚀 Become a Vendor
               <FiArrowRight aria-hidden />
             </a>
           </div>
 
-          <div className="reveal reveal-delay-1 rounded-card border border-border-strong bg-white/5 p-3 shadow-[0_30px_90px_rgba(20,20,20,0.32)] backdrop-blur md:p-5">
-            <div className="rounded-card bg-background-white p-5 text-secondary md:p-6">
-              <div className="flex items-center justify-between gap-4 border-b border-border-light pb-6">
+          <div className="reveal reveal-delay-1 rounded-card border border-border-strong bg-white/5 p-2 sm:p-3 lg:p-5 shadow-[0_20px_60px_rgba(0,0,0,0.25)] sm:shadow-[0_30px_90px_rgba(20,20,20,0.32)] backdrop-blur">
+            <div className="rounded-card bg-background-white p-3 sm:p-5 lg:p-6 text-secondary">
+              <div className="flex items-center justify-between gap-3 sm:gap-4 border-b border-border-light pb-4 sm:pb-6">
                 <div>
-                  <p className="text-xs font-black uppercase text-secondary-light">
+                  <p className="text-[10px] sm:text-xs font-black uppercase text-secondary-light">
                     Vendor dashboard
                   </p>
-                  <h3 className="mt-1 text-2xl font-black">Service pulse</h3>
+                  <h3 className="mt-1 text-xl sm:text-2xl font-black">Service pulse</h3>
                 </div>
-                <span className="rounded-full bg-primary-light px-3 py-1 text-xs font-black text-primary">
+                <span className="rounded-full bg-primary-light px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-black text-primary">
                   Peak hour
                 </span>
               </div>
@@ -178,11 +184,11 @@ export default function VendorSection() {
                     +32%
                   </p>
                 </div>
-                <div className="mt-6 grid h-32 grid-cols-8 items-end gap-2">
-                  {[45, 58, 38, 70, 62, 85, 74, 96].map((height) => (
+                <div className="mt-6 grid h-24 xs:h-32 grid-cols-8 items-end gap-1 xs:gap-2">
+                  {[45, 58, 38, 70, 62, 85, 74, 96].map((height, idx) => (
                     <span
-                      key={height}
-                      className="rounded-t-button bg-primary-gradient shadow-[0_0_24px_rgba(245,107,85,0.22)] transition duration-300 hover:scale-y-105"
+                      key={idx}
+                      className="rounded-t-sm xs:rounded-t-button bg-primary-gradient shadow-[0_0_24px_rgba(245,107,85,0.22)] transition duration-300 hover:scale-y-105"
                       style={{ height: `${height}%` }}
                     />
                   ))}
@@ -196,16 +202,16 @@ export default function VendorSection() {
           {/* Vendor Dashboard */}
           <ScrollReveal>
             <div className="flex flex-col gap-8 items-center mb-16 lg:flex-row relative">
-              {vendorScreens[0].image && (
+              {vendorScreens[0].screenshot && (
                 <div 
                   className="relative w-full max-w-[500px] flex-shrink-0 cursor-pointer"
                   onClick={() => {
-                    const img = vendorScreens[0].image;
+                    const img = vendorScreens[0].screenshot;
                     if (img) setSelectedImage(img);
                   }}
                 >
                   <Image
-                    src={vendorScreens[0].image}
+                    src={vendorScreens[0].screenshot}
                     alt={vendorScreens[0].title}
                     width={500}
                     height={350}
@@ -228,18 +234,47 @@ export default function VendorSection() {
           {/* Other features grid */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {vendorScreens.slice(1).map((screen, index) => (
-              <ScrollReveal key={index} delay={index * 80}>
+              <ScrollReveal key={screen.title} delay={index * 80}>
                 <TiltCard className="h-full">
-                  <div className="premium-card border border-primary/30 bg-white p-6 md:p-7 h-full">
-                    <div className="w-16 h-16 rounded-2xl bg-primary-light flex items-center justify-center mb-5">
-                      <screen.icon className="text-3xl text-primary" />
+                  <div className="group premium-card border border-primary/30 bg-white p-6 md:p-7 h-full relative overflow-hidden cursor-pointer">
+                    {/* Sliding Text Content */}
+                    <div className="transition-all duration-500 ease-in-out group-hover:-translate-x-full group-hover:opacity-0">
+                      <div className="w-16 h-16 rounded-2xl bg-primary-light flex items-center justify-center mb-5">
+                        <screen.icon className="text-3xl text-primary" />
+                      </div>
+                      <h3 className="text-xl font-black text-secondary mb-2">
+                        {screen.title}
+                      </h3>
+                      <p className="text-base leading-7 text-secondary-light">
+                        {screen.copy}
+                      </p>
                     </div>
-                    <h3 className="text-xl font-black text-secondary mb-2">
-                      {screen.title}
-                    </h3>
-                    <p className="text-base leading-7 text-secondary-light">
-                      {screen.copy}
-                    </p>
+
+                    {/* Sliding Image Content */}
+                    {screen.screenshot && (
+                      <div
+                        className="absolute inset-0 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-10"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (screen.screenshot) setSelectedImage(screen.screenshot);
+                        }}
+                      >
+                        <div className="relative w-full h-full p-2">
+                          <Image
+                            src={screen.screenshot}
+                            alt={screen.title}
+                            fill
+                            className="object-cover rounded-[22px] sm:rounded-[26px] shadow-2xl"
+                          />
+                          {/* Hover Overlay with Icon */}
+                          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-[22px] sm:rounded-[26px]">
+                            <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                              <FiZoomIn className="text-2xl" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </TiltCard>
               </ScrollReveal>
