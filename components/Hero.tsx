@@ -112,12 +112,12 @@ export default function Hero() {
                   <div className="absolute top-3 right-3 flex items-center gap-2 sm:gap-3 bg-white rounded-full px-2.5 py-1 sm:px-4 sm:py-2 shadow-md">
                     <div className="flex items-center gap-1">
                       <FaStar className="text-yellow-500 text-xs sm:text-base" />
-                      <span className="font-bold text-secondary text-xs sm:text-base">5</span>
+                      <span className="font-bold text-secondary text-xs sm:text-base">4.9</span>
                     </div>
                     <div className="w-px h-3 sm:h-5 bg-border" />
                     <div className="flex items-center gap-1">
                       <FiUser className="text-secondary-light text-xs sm:text-base" />
-                      <span className="font-bold text-secondary-light text-xs sm:text-base">99</span>
+                      <span className="font-bold text-secondary-light text-xs sm:text-base">121</span>
                     </div>
                   </div>
 
@@ -136,7 +136,7 @@ export default function Hero() {
                     {/* Offer Badge */}
                     <div className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-white text-[10px] sm:text-sm font-semibold whitespace-nowrap">
                       <RiDiscountPercentFill className="text-white font-bold text-sm sm:text-lg" />
-                      Save Upto 21% OFF
+                      Save Upto 20% OFF
                     </div>
                   </div>
                 </div>
@@ -164,14 +164,14 @@ export default function Hero() {
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-1">
                       <FiMapPin />
-                      <span>0.06 km</span>
+                      <span>0.91 km</span>
                     </div>
 
                     <span>•</span>
 
                     <div className="flex items-center gap-1">
                       <FiClock />
-                      <span>5 min</span>
+                      <span>11 min</span>
                     </div>
                   </div>
 

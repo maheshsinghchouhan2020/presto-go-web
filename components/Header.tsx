@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -15,6 +16,15 @@ const navItems = [
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -78,14 +88,68 @@ export default function Header() {
           })}
         </nav>
 
-        <a
-          href="https://vendor.presto-go.com/signup"
-          target="_blank"
-          rel="noreferrer"
-          className="primary-button inline-flex px-3 xs:px-4 sm:px-5 py-2 sm:py-3 text-[10px] xs:text-xs sm:text-sm font-black relative z-10 cursor-pointer pointer-events-auto"
-        >
-          Become a Vendor
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href="https://vendor.presto-go.com/signup"
+            target="_blank"
+            rel="noreferrer"
+            className="primary-button hidden xs:inline-flex px-3 xs:px-4 sm:px-5 py-2 sm:py-3 text-[10px] xs:text-xs sm:text-sm font-black relative z-10 cursor-pointer pointer-events-auto"
+          >
+            Become a Vendor
+          </a>
+          
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border-light bg-background-muted text-secondary transition-all hover:bg-background-white lg:hidden"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <FiX className="text-xl" /> : <FiMenu className="text-xl" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`fixed inset-0 z-40 bg-background-white transition-all duration-500 lg:hidden ${
+          isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        }`}
+      >
+        <div className="flex flex-col h-full pt-24 px-6 pb-10">
+          <nav className="flex flex-col gap-2">
+            {navItems.map((item) => {
+              const sectionId = item.href.slice(1);
+              const isActive = activeSection === sectionId;
+              
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center justify-between rounded-2xl px-6 py-4 text-xl font-black transition-all ${
+                    isActive 
+                      ? "bg-primary-light text-primary" 
+                      : "text-secondary hover:bg-background-muted"
+                  }`}
+                >
+                  {item.label}
+                  {isActive && <div className="h-2 w-2 rounded-full bg-primary" />}
+                </Link>
+              );
+            })}
+          </nav>
+          
+          <div className="mt-auto pt-10 border-t border-border-light">
+            <a
+              href="https://vendor.presto-go.com/signup"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="primary-button flex w-full items-center justify-center py-5 text-lg font-black"
+            >
+              Become a Vendor
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   );

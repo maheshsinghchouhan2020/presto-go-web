@@ -42,31 +42,31 @@ const vendorScreens = [
     copy: "Accept, approve, and track incoming orders instantly with clear statuses. View complete order information, customer details, and payment history."
   },
   {
-    screenshot: "/vendor4.png",
+    screenshot: "/vendor3.png",
     icon: FiList,
     title: "Menu Management",
     copy: "Add, edit, and manage your menu items, categories, and stock status."
   },
   {
-    screenshot: "/vendor5.png",
+    screenshot: "/vendor4.png",
     icon: FiPercent,
     title: "Happy Hour Offers",
     copy: "Set up happy hour discounts, schedule days and times, and boost revenue."
   },
   {
-    screenshot: "/vendor6.png",
+    screenshot: "/vendor5.png",
     icon: FiDollarSign,
     title: "Payouts & Earnings",
     copy: "Track your daily, weekly, and monthly earnings, plus complete payout history."
   },
   {
-    screenshot: "/vendor7.png",
+    screenshot: "/vendor6.png",
     icon: FiStar,
     title: "Reviews Management",
     copy: "View and manage customer reviews to improve your venue's service and reputation."
   },
   {
-    screenshot: "/vendor8.png",
+    screenshot: "/vendor7.png",
     icon: FiSettings,
     title: "Bar Profile Settings",
     copy: "Update your bar information, hours, location, and all venue details easily."

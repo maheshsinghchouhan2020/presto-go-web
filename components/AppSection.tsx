@@ -17,28 +17,29 @@ const steps = [
     title: "View bar details",
     description:
       "Get all the information you need – from opening hours and special offers to the overall vibe and guest reviews.",
-    image: "/media2.jpeg",
+    image: "/media2.png",
   },
   {
     id: 3,
     title: "Browse menu & order",
     description:
       "Skip the line by browsing the full digital menu and placing your order directly from your phone.",
-    image: "/media3.jpeg",
+    image: "/media3.png",
   },
   {
     id: 4,
     title: "Manage your cart",
     description:
       "Keep track of your selections, customize your drinks, and review your order before checking out securely.",
-    image: "/media4.jpeg",
+    image: "/media4.png",
   },
   {
     id: 5,
     title: "Overview",
     description:
       "Review your active orders, past history, and rewards all in one place for a seamless bar experience.",
-    image: "/media5.jpeg",
+    image: "/media5.png",
+  
   },
 ];
 
@@ -203,7 +204,7 @@ export default function AppSection() {
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-24 items-start">
           {/* ── Phone mockup ─────────────────────────────────── */}
           <div className="w-full lg:w-1/2 flex items-start justify-center pt-0 pb-10 sticky top-20 lg:top-32 z-30 lg:z-auto">
-            <div className="relative w-full max-w-[200px] xs:max-w-[240px] md:max-w-[280px] lg:max-w-[320px] aspect-[9/19.5] rounded-[2rem] xs:rounded-[2.5rem] lg:rounded-[3rem] border-[3px] xs:border-[4px] lg:border-[5px] border-[#1c1c1e] bg-gradient-to-b from-[#2c2c2e] to-black shadow-[0_10px_30px_rgba(0,0,0,0.25),0_30px_80px_rgba(0,0,0,0.35)] overflow-hidden">
+            <div className="relative w-full max-w-[200px] xs:max-w-[240px] md:max-w-[280px] lg:max-w-[320px] aspect-[9/19.5] rounded-[2rem] border-[3px] border-[#1c1c1e] bg-gradient-to-b from-[#2c2c2e] to-black shadow-[0_10px_30px_rgba(0,0,0,0.25),0_30px_80px_rgba(0,0,0,0.35)] overflow-hidden">
               {/* Dynamic Island */}
               <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[35%] h-[22px] bg-black rounded-full z-30 shadow-inner"></div>
 
