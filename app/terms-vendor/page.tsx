@@ -35,8 +35,7 @@ export default function TermsConditionsVendor() {
             ← Back to Home
           </Link>
 
-          <h1 className="text-4xl font-black text-secondary mb-4">Terms & Conditions (Vendor)</h1>
-          <p className="text-secondary-light text-lg mb-12">Last updated: October 18, 2025</p>
+      
 
           {loading ? (
             <div className="premium-card p-8 text-center">
